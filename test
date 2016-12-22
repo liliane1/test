@@ -1,0 +1,65 @@
+package com.example.lilianecuypers.game2048;
+
+import android.app.Activity;
+//import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class WelcomScreen extends Activity {
+    //variabele voor de about button valt weg als er gewerkt wordt met ButterKnife
+    //private Button btnAbout;
+
+    //butterknife @Bind vervangt findViewById
+    @BindView(R.id.btnAbout)Button btnAbout;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //verticaal richting
+       setContentView(R.layout.activity_welcom_screen);
+        //horizontale richting
+       // setContentView(R.layout.layout_land);
+
+      /*  //code to retrieve the button for the variable
+        //btnAbout = (Button)findViewById(R.id.btnAbout)
+        final Context context = this;
+        //add the buttons
+        btnAbout.setOnClickListener(new View.OnClickListener(){
+            //add alertDialog window to the app
+            //instantiate an AlertDialog.
+           @Override
+            public void onClick(View view) {
+               AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+               alertDialogBuilder.setMessage(R.string.dialog).setTitle(R.string.dialog_title);
+               AlertDialog alertDialog = alertDialogBuilder.create();
+               //get the AlertDialog from create()
+               alertDialog.show();
+
+           }
+        });
+*/
+        //werken met ButterKnife
+        ButterKnife.bind(this);
+        }
+
+    //methode met ButterKnife
+
+    @OnClick(R.id.btnAbout)
+    
+     public void button_Onclick(View view) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(R.string.dialog).setTitle(R.string.dialog_title);
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        //get the AlertDialog from create()
+        alertDialog.show();
+
+    }
+
+}
